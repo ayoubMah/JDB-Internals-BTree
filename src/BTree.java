@@ -10,20 +10,13 @@ public class BTree {
      * Logic described in: docs/level1.md
      */
     public BTreeNode search(BTreeNode node, int key){
-        Integer[] keys = node.getKeys();
-        BTreeNode[] children = node.getChildren();
-        for (int i = 0; i < node.getN(); i++){
-            if (keys[i] == key){
-                return node;
-            } else if (!node.isLeaf()) {
-                if (keys[i] > key){
-                    return search(children[i], key);
-                } else if (key>= keys[i]) {
-                    return search(children[i+1], key);
-                }
-            }else {
-                //System.out.println("no don't found it :)");
-                return null;
+        Integer[] keys = node.keys;
+        BTreeNode[] children = node.children;
+        for (int i = 0; i < node.n; i++){
+            if (keys[i] >= key){
+                if (i < node.n && keys[i]== key) return node;
+                else if (node.isLeaf) return null;
+                else return search(children[i], key);
             }
         }
         return null;

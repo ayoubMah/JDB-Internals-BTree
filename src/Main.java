@@ -5,10 +5,10 @@ public class Main {
 
         // MANUALLY simulate an insertion into the root for testing search
         // In Level 2, this will be handled by tree.insert(10)
-        tree.root.getKeys()[0] = 10;
-        tree.root.getKeys()[1] = 20;
-        tree.root.getKeys()[2] = 30;
-        tree.root.setN(3);
+        tree.root.keys[0] = 10;
+        tree.root.keys[1] = 20;
+        tree.root.keys[2] = 30;
+        tree.root.n = 3;
 
         // Test the search logic
         int[] testKeys = {10, 25, 30, 100};
